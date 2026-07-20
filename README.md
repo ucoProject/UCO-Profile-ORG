@@ -1,8 +1,8 @@
-# UCO Profile: Example
+# UCO Profile: ORG
 
 ![Repository Status](https://img.shields.io/badge/-exploratory-informational)
 
-This repository explores UCO under a usage profile assuming adoption of [Example](http://example.org/ontology).
+This repository explores UCO under a usage profile assuming adoption of [ORG](https://www.w3.org/TR/vocab-org/).
 
 The CDO Profile development rationale and design is [here](https://cyberdomainontology.org/ontology/development/#profiles).
 

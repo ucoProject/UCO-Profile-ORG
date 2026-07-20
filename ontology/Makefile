@@ -18,10 +18,16 @@ SHELL := /bin/bash
 
 top_srcdir := $(shell cd .. ; pwd)
 
+sh_owl_srcdir := $(top_srcdir)/dependencies/CDO-Shapes-ORG/dependencies/CDO-Shapes-FOAF/dependencies/CDO-Shapes-OWL
+
 uco_srcdir := $(top_srcdir)/dependencies/UCO
 
 generated_dependencies_ttls := \
-  $(top_srcdir)/dependencies/CDO-Shapes-Example/dependencies/formatted-example.ttl \
+  $(top_srcdir)/dependencies/CDO-Shapes-ORG/dependencies/CDO-Shapes-FOAF/dependencies/formatted-foaf.ttl \
+  $(top_srcdir)/dependencies/CDO-Shapes-ORG/dependencies/CDO-Shapes-PROV-O/dependencies/prov-o-dl.ttl \
+  $(top_srcdir)/dependencies/CDO-Shapes-ORG/dependencies/CDO-Shapes-PROV-O/ontology/cdo-prov-o.ttl \
+  $(top_srcdir)/dependencies/CDO-Shapes-ORG/dependencies/CDO-Shapes-SKOS/dependencies/formatted-skos.ttl \
+  $(top_srcdir)/dependencies/CDO-Shapes-ORG/dependencies/formatted-org.ttl \
   $(uco_srcdir)/tests/uco_monolithic.ttl
 
 test_pys := $(wildcard test_*.py)
@@ -79,7 +85,7 @@ clean:
 generated-dependencies.ttl: \
   $(generated_dependencies_ttls) \
   $(top_srcdir)/.venv.done.log \
-  $(uco_srcdir)/ontology/owl/owl.ttl \
+  $(sh_owl_srcdir)/shapes/sh-owl.ttl \
   .empty.ttl
 	source $(top_srcdir)/venv/bin/activate \
 	  && rdfpipe \
@@ -90,7 +96,7 @@ generated-dependencies.ttl: \
 	# Check for conflicts when merging ontology files.
 	source $(top_srcdir)/venv/bin/activate \
 	  && pyshacl \
-	    --shacl $(uco_srcdir)/ontology/owl/owl.ttl \
+	    --shacl $(sh_owl_srcdir)/shapes/sh-owl.ttl \
 	    _$@
 	mv _$@ $@
 
@@ -120,6 +126,6 @@ generated-ontology.ttl: \
 	# Check for conflicts when merging ontology files.
 	source $(top_srcdir)/venv/bin/activate \
 	  && pyshacl \
-	    --shacl $(uco_srcdir)/ontology/owl/owl.ttl \
+	    --shacl $(sh_owl_srcdir)/shapes/sh-owl.ttl \
 	    _$@
 	mv _$@ $@

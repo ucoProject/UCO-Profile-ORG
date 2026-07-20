@@ -55,6 +55,9 @@ all: \
 	git submodule update \
 	  --init
 	$(MAKE) \
+	  --directory dependencies/CDO-Shapes-ORG \
+	  .git_submodule_init.done.log
+	$(MAKE) \
 	  --directory dependencies/UCO \
 	  .git_submodule_init.done.log \
 	  .lib.done.log

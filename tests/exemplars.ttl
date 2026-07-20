@@ -1,4 +1,4 @@
-# imports: http://example.org/ontology/uco-example
+# imports: http://example.org/ontology/uco-org
 
 @prefix drafting: <http://example.org/ontology/drafting/> .
 @prefix kb: <http://example.org/kb/> .
@@ -6,17 +6,17 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> .
+@prefix uco-identity: <https://ontology.unifiedcyberontology.org/uco/identity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/kb>
 	a owl:Ontology ;
 	rdfs:comment "This knowledge base instantiates each of the mapped classes and properties, so SHACL shapes can perform a review for inconsistencies in the mapping between UCO and the mapped ontology."@en ;
-	owl:imports <http://example.org/ontology/uco-example> ;
-	sh:shapesGraph <http://example.org/shapes/sh-uco-example> ;
+	owl:imports <http://example.org/ontology/uco-org> ;
+	sh:shapesGraph <http://example.org/shapes/sh-uco-org> ;
 	.
 
-kb:UcoObject-24cf6699-3cb6-47fa-9f62-c972b0971752
-	a uco-core:UcoObject ;
+kb:Organization-bfd87559-1ad8-4eb5-8111-3c31e9cac8a8
+	a uco-identity:Organization ;
 	.
 

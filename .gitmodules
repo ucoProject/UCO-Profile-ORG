@@ -1,7 +1,7 @@
-[submodule "dependencies/CDO-Shapes-Example"]
-	path = dependencies/CDO-Shapes-Example
-	url = https://github.com/Cyber-Domain-Ontology/CDO-Shapes-Example.git
-	branch = base
+[submodule "dependencies/CDO-Shapes-ORG"]
+	path = dependencies/CDO-Shapes-ORG
+	url = https://github.com/Cyber-Domain-Ontology/CDO-Shapes-ORG.git
+	branch = main
 [submodule "dependencies/UCO"]
 	path = dependencies/UCO
 	url = https://github.com/ucoProject/UCO.git

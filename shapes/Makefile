@@ -18,6 +18,8 @@ SHELL := /bin/bash
 
 top_srcdir := $(shell cd .. ; pwd)
 
+sh_owl_srcdir := $(top_srcdir)/dependencies/CDO-Shapes-ORG/dependencies/CDO-Shapes-FOAF/dependencies/CDO-Shapes-OWL
+
 uco_srcdir := $(top_srcdir)/dependencies/UCO
 
 test_pys := $(wildcard test_*.py)
@@ -26,7 +28,11 @@ test_pys := $(wildcard test_*.py)
 # by owl:imports, including UCO.  Non-shapes graphs are delegated to
 # ../ontology/generated-dependencies.ttl.
 generated_dependencies_ttls := \
-  $(top_srcdir)/dependencies/CDO-Shapes-Example/shapes/sh-example.ttl \
+  $(sh_owl_srcdir)/shapes/sh-owl.ttl \
+  $(top_srcdir)/dependencies/CDO-Shapes-ORG/dependencies/CDO-Shapes-FOAF/shapes/sh-foaf.ttl \
+  $(top_srcdir)/dependencies/CDO-Shapes-ORG/dependencies/CDO-Shapes-PROV-O/shapes/sh-prov-o.ttl \
+  $(top_srcdir)/dependencies/CDO-Shapes-ORG/dependencies/CDO-Shapes-SKOS/shapes/sh-skos.ttl \
+  $(top_srcdir)/dependencies/CDO-Shapes-ORG/shapes/sh-org.ttl \
   $(uco_srcdir)/tests/uco_monolithic.ttl
 
 ttl_basenames := $(wildcard sh-*.ttl)
