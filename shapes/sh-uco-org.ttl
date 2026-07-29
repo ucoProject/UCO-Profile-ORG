@@ -1,5 +1,5 @@
 # imports: http://example.org/ontology/uco-org
-# imports: http://example.org/shapes/sh-uco-org
+# imports: http://example.org/shapes/sh-org
 
 @prefix drafting: <http://example.org/ontology/drafting/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -14,7 +14,7 @@
 	rdfs:comment "This shapes file should be filled in for at least mapped classes and properties when the upstream ontology does not provide SHACL shapes, or when draft concepts are added to the profile ontology."@en ;
 	owl:imports
 		<http://example.org/ontology/uco-org> ,
-		<http://example.org/shapes/sh-uco-org>
+		<http://example.org/shapes/sh-org>
 		;
 	.
 
