@@ -21,14 +21,16 @@ PYTHON3 ?= python3
 all: \
   .venv-pre-commit/var/.pre-commit-built.log \
   all-shapes \
-  all-tests
+  all-examples
 
 .PHONY: \
   all-dependencies \
+  all-examples \
   all-ontology \
   all-shapes \
   all-tests \
   check-dependencies \
+  check-examples \
   check-mypy \
   check-ontology \
   check-shapes \
@@ -38,6 +40,7 @@ all: \
   check-supply-chain-submodules \
   check-tests \
   clean-dependencies \
+  clean-examples \
   clean-ontology \
   clean-shapes \
   clean-tests
@@ -109,6 +112,11 @@ all-dependencies: \
 	  PYTHON3=$(PYTHON3) \
 	  --directory dependencies
 
+all-examples: \
+  all-tests
+	$(MAKE) \
+	  --directory examples
+
 all-ontology: \
   all-dependencies
 	$(MAKE) \
@@ -127,12 +135,19 @@ all-tests: \
 check: \
   .venv-pre-commit/var/.pre-commit-built.log \
   check-mypy \
-  check-tests
+  check-examples
 
 check-dependencies: \
   all-dependencies
 	$(MAKE) \
 	  --directory dependencies \
+	  check
+
+check-examples: \
+  all-examples \
+  check-tests
+	$(MAKE) \
+	  --directory examples \
 	  check
 
 check-mypy: \
@@ -231,6 +246,7 @@ check-tests: \
 	  check
 
 clean: \
+  clean-examples \
   clean-tests \
   clean-shapes \
   clean-ontology \
@@ -241,6 +257,11 @@ clean: \
 clean-dependencies:
 	@$(MAKE) \
 	  --directory dependencies \
+	  clean
+
+clean-examples:
+	@$(MAKE) \
+	  --directory examples \
 	  clean
 
 clean-ontology:
